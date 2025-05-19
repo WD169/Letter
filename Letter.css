@@ -186,7 +186,7 @@
         height: 600px;
     }
     #carouselimg {
-        width: 100%;
+        max-width: 95%;
         max-height: 550px;
     }
     .quiz {
