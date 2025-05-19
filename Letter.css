@@ -183,11 +183,11 @@
     }
     .maincon {
         width: 90%;
-        height: 430px;
+        height: 480px;
     }
     #carouselimg {
         width: 95%;
-        max-height: 420px;
+        max-height: 470px;
     }
     .quiz {
         padding: 5px 10px;
