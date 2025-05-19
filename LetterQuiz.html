@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .quiz {
+            width: 100%;
+            height: 98vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: radial-gradient(circle,rgba(63, 94, 251, 1) 0%, rgba(221, 74, 237, 1) 66%, rgba(252, 70, 107, 1) 100%);
+        }
+        h1 {
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            text-align: center;
+        }
+        form {
+            width: 60%;
+            height: 700px;
+            border-radius: 20px;
+            background-color: white;
+            font-size: 25px;
+            overflow-y: scroll;
+            padding: 20px 40px;
+            margin-bottom: 20px;
+        }
+        span {
+            margin-left: 10px;
+            margin-right: 40px;
+        }
+        #quizbtn {
+            color: white;
+            padding: 5px 15px;
+            font-size: 20px;
+            border-radius: 10px;
+            background-color: blue;
+        }
+        #quizbtn:hover {
+            background-color: darkblue;
+        }
+        #quizbtnreset {
+            color: white;
+            padding: 5px 15px;
+            font-size: 20px;
+            border-radius: 10px;
+            background-color: blue;
+        }
+        #quizbtnreset:hover {
+            background-color: red;
+        }
+        #wait {
+            width: 100%;
+            height: 50px;
+            color: rgb(0, 182, 0);
+            z-index: 10;
+        }
+
+        @media (max-width: 380px) {
+        h1 {
+            font-size: 30px;
+            margin: 30px auto;
+        }
+        form {
+            width: 80%;
+            height: 500px;
+            border-radius: 5px;
+            font-size: 12px;
+            overflow-y: scroll;
+            padding: 10px 12px;
+            margin-bottom: 20px;
+        }
+        span {
+            margin-left: 5px;
+            margin-right: 15px;
+        }
+        #quizbtn {
+            padding: 3px 10px;
+            font-size: 14px;
+            border-radius: 5px;
+        }
+        #quizbtnreset {
+            padding: 3px 10px;
+            font-size: 14px;
+            border-radius: 5px;
+        }
+        #wait {
+            width: 100%;
+            height: 25px;
+        }
+        }
+    </style>
+</head>
+<body>
+      <div class="quiz">
+        <h1>Love Quiz</h1>
+        <form action="" onsubmit="formsubmit(event)">
+            <label for="q1">1. Which is my favorite colour?</label><br><br>
+            <input type="radio" name="q1" value="Green" required><span>Green</span>
+            <input type="radio" name="q1" value="Blue"><span>Blue</span><br>
+            <input type="radio" name="q1" value="Red"><span>Red</span>
+            <input type="radio" name="q1" value="Black"><span>Dark Blue</span><br><br><br>
+
+            <label for="q2">2. What is my dream vacation destination?</label><br><br>
+            <input type="radio" name="q2" value="Paris" required><span>Paris</span>
+            <input type="radio" name="q2" value="Maldives"><span>Maldives</span><br>
+            <input type="radio" name="q2" value="Switzerland"><span>Switzerland</span>
+            <input type="radio" name="q2" value="Dubai"><span>Dubai</span><br><br><br>
+
+            <label for="q3">3. What food do I love the most?</label><br><br>
+            <input type="radio" name="q3" value="Pizza" required><span>Pizza</span>
+            <input type="radio" name="q3" value="Chicken"><span>Chicken</span><br>
+            <input type="radio" name="q3" value="Non-veg Chinese"><span>Non-veg Chinese</span>
+            <input type="radio" name="q3" value="Ice Cream"><span>Ice Cream</span><br><br><br>
+
+            <label for="q4">4. What’s my favorite time of the day?</label><br><br>
+            <input type="radio" name="q4" value="Morning" required><span>Morning</span>
+            <input type="radio" name="q4" value="Afternoon"><span>Afternoon</span><br>
+            <input type="radio" name="q4" value="Evening"><span>Evening</span>
+            <input type="radio" name="q4" value="Night"><span>Night</span><br><br><br>
+
+            <label for="q5">5. What song reminds me of us?</label><br><br>
+            <input type="radio" name="q5" value="Perfect" required><span>Perfect - Ed Sheeran</span>
+            <input type="radio" name="q5" value="UntilIFoundYou"><span>Until I Found You</span><br>
+            <input type="radio" name="q5" value="Loveme"><span>Love me like you do</span>
+            <input type="radio" name="q5" value="AllOfMe"><span>All of Me</span><br><br><br>
+
+            <label for="q6">6. What makes me smile the most?</label><br><br>
+            <input type="radio" name="q6" value="Memes" required><span>Funny Memes</span>
+            <input type="radio" name="q6" value="YourSmile"><span>Your Smile</span><br>
+            <input type="radio" name="q6" value="GoodFood"><span>Good Food</span>
+            <input type="radio" name="q6" value="Music"><span>Music</span><br><br><br>
+
+            <label for="q7">7. What’s my go-to comfort food?</label><br><br>
+            <input type="radio" name="q7" value="Chocolate" required><span>Chocolate</span>
+            <input type="radio" name="q7" value="Maggi"><span>Maggi</span><br>
+            <input type="radio" name="q7" value="IceCream"><span>Ice Cream</span>
+            <input type="radio" name="q7" value="Tea"><span>Tea</span><br><br><br>
+
+            <label for="q8">8. When did we first meet?</label><br><br>
+            <input type="radio" name="q8" value="InBuilding" required><span>In Building</span>
+            <input type="radio" name="q8" value="College"><span>In College</span><br>
+            <input type="radio" name="q8" value="Home"><span>At Home</span>
+            <input type="radio" name="q8" value="Online"><span>Online</span><br><br><br>
+
+            <label for="q9">9. What do I love most about you?</label><br><br>
+            <input type="radio" name="q9" value="Eyes" required><span>Your Eyes</span>
+            <input type="radio" name="q9" value="Smile"><span>Your Smile</span><br>
+            <input type="radio" name="q9" value="Love"><span>Your Love on me</span>
+            <input type="radio" name="q9" value="All"><span>Everything</span><br><br><br>
+
+            <label for="q10">10. What's my favorite movie genre?</label><br><br>
+            <input type="radio" name="q10" value="Suspence" required><span>Suspence</span>
+            <input type="radio" name="q10" value="Romance"><span>Romance</span><br>
+            <input type="radio" name="q10" value="Crime"><span>Crime</span>
+            <input type="radio" name="q10" value="Comedy"><span>Comedy</span><br><br><br>
+
+            <label for="q11">11. Who says “I love you” first usually?</label><br><br>
+            <input type="radio" name="q11" value="Me" required><span>Me</span>
+            <input type="radio" name="q11" value="You"><span>You</span><br>
+            <input type="radio" name="q11" value="Both"><span>Both</span>
+            <input type="radio" name="q11" value="Neither"><span>Neither</span><br><br><br>
+
+            <label for="q12">12. How do I show love the most?</label><br><br>
+            <input type="radio" name="q12" value="Gifts" required><span>Gifts</span>
+            <input type="radio" name="q12" value="Words"><span>Sweet Words</span><br>
+            <input type="radio" name="q12" value="Time"><span>Spending Time</span>
+            <input type="radio" name="q12" value="Support"><span>Emotional Support</span><br><br><br>
+
+            <label for="q13">13. What’s my favorite way to relax?</label><br><br>
+            <input type="radio" name="q13" value="Music" required><span>Listening to Music</span>
+            <input type="radio" name="q13" value="Webseries"><span>Watching Webseries</span><br>
+            <input type="radio" name="q13" value="games"><span>Playing games</span>
+            <input type="radio" name="q13" value="Walk"><span>Going for a Walk</span><br><br><br>
+
+            <label for="q14">14. What kind of pet would I want?</label><br><br>
+            <input type="radio" name="q14" value="Dog" required><span>Dog</span>
+            <input type="radio" name="q14" value="Cat"><span>Cat</span><br>
+            <input type="radio" name="q14" value="Rabbit"><span>Rabbit</span>
+            <input type="radio" name="q14" value="None"><span>None</span><br><br><br>
+
+            <label for="q15">15. What do I prefer on weekends?</label><br><br>
+            <input type="radio" name="q15" value="Movie" required><span>Movie Night</span>
+            <input type="radio" name="q15" value="Sleep"><span>Sleep In</span><br>
+            <input type="radio" name="q15" value="Travel"><span>Short Trip</span>
+            <input type="radio" name="q15" value="Games"><span>Play Games</span><br><br><br>
+
+            <label for="q16">16. If I could have any superpower, what would it be?</label><br><br>
+            <input type="radio" name="q16" value="Invisibility" required><span>Invisibility</span>
+            <input type="radio" name="q16" value="Fly"><span>Flying</span><br>
+            <input type="radio" name="q16" value="Time"><span>Time Travel</span>
+            <input type="radio" name="q16" value="MindReading"><span>Read Minds</span><br><br><br>
+
+            <label for="q17">17. What’s my favorite festival?</label><br><br>
+            <input type="radio" name="q17" value="Diwali" required><span>Diwali</span>
+            <input type="radio" name="q17" value="Holi"><span>Holi</span><br>
+            <input type="radio" name="q17" value="Ganesh"><span>Ganesh Festival</span>
+            <input type="radio" name="q17" value="Krishna"><span>Krishna Janmashtami</span><br><br><br>
+
+            <label for="q18">18. What’s my love language?</label><br><br>
+            <input type="radio" name="q18" value="Touch" required><span>Physical Touch</span>
+            <input type="radio" name="q18" value="Words"><span>Words of Affirmation</span><br>
+            <input type="radio" name="q18" value="Quarreling"><span>Quarreling with You</span>
+            <input type="radio" name="q18" value="Time"><span>Quality Time</span><br><br><br>
+
+            <label for="q19">19. What is my biggest fear?</label><br><br>
+            <input type="radio" name="q19" value="LosingLovedOne" required><span>Losing Loved Ones</span>
+            <input type="radio" name="q19" value="Heights"><span>Heights</span><br>
+            <input type="radio" name="q19" value="Failure"><span>Failure</span>
+            <input type="radio" name="q19" value="Hurt"><span>You getting hurt</span><br><br><br>
+
+            <label for="q20">20. What does our relationship mean to me?</label><br><br>
+            <input type="radio" name="q20" value="Everything" required><span>Everything</span>
+            <input type="radio" name="q20" value="Support"><span>Support System</span><br>
+            <input type="radio" name="q20" value="Fun"><span>Fun Adventure</span>
+            <input type="radio" name="q20" value="Comfort"><span>Peace and Comfort</span><br><br><br>
+
+            <div id="wait"></div>
+            <button type="submit" id="quizbtn">Submit</button>
+            <button type="reset" id="quizbtnreset">Reset</button>
+        </form>
+                    
+      </div>
+
+      <script>
+          let ans = ["Blue","Dubai","Chicken","Evening","Loveme","YourSmile","IceCream","InBuilding","All","Crime","Both","Support","games","Cat","Travel","Time","Ganesh","Touch","Hurt","Everything"];
+          let correct = 0,wrong = 0;
+            function result(a, b) {
+                let selected = document.querySelector(`input[name="q${a + 1}"]:checked`);
+                if (selected && selected.value === b) {
+                return true;
+                } else {
+                return false;
+                }
+            }
+
+          function formsubmit() {
+            event.preventDefault();
+            
+            for(let i=0;i<20;i++) {
+                if(result(i,ans[i])){
+                    correct += 2;
+                } else {
+                    wrong--;
+                }
+            }
+            // alert("Thank you for your response!!");
+            document.getElementById("wait").innerHTML = "Please wait while the result is being calculated..";
+            let arr = [correct,wrong];
+            history.replaceState(null, null, location.href);
+            setTimeout(function () { 
+                localStorage.setItem("result",JSON.stringify(arr));
+                window.location.href='QuizSuccess.html';
+            },2000)
+        }
+      </script>
+</body>
+</html>

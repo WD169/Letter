@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            color: yellowgreen;
+        }
+        .correct {
+            color: greenyellow;
+        }
+        .wrong {
+            color: red;
+        }
+        #home {
+            color: white;
+            border: none;
+            font-size: 20px;
+            padding: 5px 10px;
+            background-color: chocolate;
+        }
+        #home:hover {
+            color: black;
+            border: 2px solid red;
+            border-radius: 10px;
+            background-color: rgb(248, 156, 37);
+        }
+        @media (max-width: 380px) {
+            * {
+                font-size: 15px;
+            }
+            #home {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="h">Thank you for your response!!</h1><br><br>
+        <h2 id="h"><b>Your Result</b></h2><br>
+        <h2 class="correct" id="h">Correct answered : <span id="correct"></span></h2>
+        <h2 class="wrong" id="h">Wrong answered : <span id="wrong"></span></h2><br>
+        <h2 id="h"><b>Final Result : <br> 
+           Score : <span id="score"></span> <br>
+        Percentage : <span id="percent"></span></b></h2><br>
+        <button id="home">Go To Home -></button>
+    </div>
+  <script>
+    let total = 40;
+    let result = JSON.parse(localStorage.getItem("result"));
+
+    let correct = parseInt(result[0]);
+    let wrong = parseInt(result[1]);
+
+    document.getElementById("correct").innerHTML = correct;
+    document.getElementById("wrong").innerHTML = wrong;
+
+    let score = correct + wrong;
+    let percent = (score / total) * 100;
+
+    document.getElementById("score").innerHTML = score;
+    document.getElementById("percent").innerHTML = percent;
+
+    document.getElementById("home").onclick = function () {
+        localStorage.removeItem("result");
+        window.location.href = "Letter.html";
+    }
+  </script>
+</body>
+</html>
